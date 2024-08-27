@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.lineup {
+    background-color: v.$rosa;
+    h3, .dia {
+        color: v.$blanco;
+        text-align: center;
+    }
+   .dia {
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.escenarios-contenedor {
+    @include m.contenedor; 
+    @include m.tablet{
+        @include m.grid(2) // ya tiene 5rem de sepracion por defecto, por lo que se le pasa un parametro solo
+    }    
+}
+
+.escenario {
+    padding-top: 2rem;
+    .nombre-escenario {
+        text-align: center;
+        color: v.$negro;
+        font-weight: 900;
+        text-transform:uppercase;
+    }
+}
+
+.calendario {
+    @include m.resetear-lista;
+
+    li {
+        padding: 2.5rem;
+        font-weight: 700;
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.bg-amarillo {
+    background-color: v.$amarillo;
+    li:nth-child(odd){ // odd significa impar
+        background-color: lighten($color: v.$amarillo, $amount: 5); // lighten es como darken, pero esta sirve para aclarar un color, ambas son funciones de sass
+    }         // amount se traduce como cantidad
+
+}
+
+.bg-verde {
+    background-color: v.$verde;
+    li:nth-child(odd){
+        background-color: lighten($color: v.$verde,  $amount: 5);
+    }
+}

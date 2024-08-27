@@ -1,0 +1,9 @@
+//antes de @use se usaba @import(pero duplicaba el codigo si lo ncesitas 2 veces)
+//@use podes hacer "@use 'base/variables' as v" y "@use 'base/variables' as p" y no duplica 
+//@forward se utiliza cuando quieres traer todo el contenido de una hoja de estilos o carpeta, etc
+
+// @use 'base/variables' as v;//(importa)viene importado del archivo _variables.scss y con las variables que le necesitemos
+// @forward 'base/normalize'; //se trae toda la hoja entera y no necesitamos variables y nada
+
+@forward 'base'; 
+@forward 'layaout';  

@@ -1,0 +1,10 @@
+// index accede a los contenidos de las hojas de estilo que estan en 'base'
+// se puede sur @use o @forward
+
+// app.scss --> base --> _index.scss --> {_globales, _normalize.scss, _variables.scss}
+
+@forward 'normalize';
+@forward 'variables'; 
+@forward 'globales'; 
+
+

@@ -1,0 +1,34 @@
+@use 'base/variables'as v;
+@use 'base/mixins' as m;
+
+.galeria {
+    @include m.contenedor;
+
+    &-imagenes {
+        @include m.grid(1, 2rem);
+
+        @include m.telefono {
+            @include m.grid(2, 2rem)
+        }
+
+        @include m.tablet {
+            @include m.grid(3, 2rem)
+        }
+
+        @include m.desktop {
+            @include m.grid(4, 2rem)
+        }
+
+        img {
+            height: 20rem;
+            object-fit: cover;  // para que las imagenes ocupen todo el lugar
+        }
+    }
+}
+
+.modal {
+    position: fixed;
+    inset: 0; // hace que el div cubra toda la pantalla en lugar de darle tamaño y posiciones
+ 
+    background-color: rgba(v.$negro,.5) 
+}

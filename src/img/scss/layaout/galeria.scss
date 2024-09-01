@@ -30,5 +30,36 @@
     position: fixed;
     inset: 0; // hace que el div cubra toda la pantalla en lugar de darle tamaño y posiciones
  
-    background-color: rgba(v.$negro,.5) 
+    background-color: rgba(v.$negro,.5);
+    display: grid; // habilita la funcion de abajo para poner la imagen en el centro
+    place-items: center;
+
+    // LLamando al Keyframes
+    animation: fadeIn ease-in 0.5s; // toma 3 valores: el nombre del keyframes, el tipo de animacion y el tiempo
+
+    &.fade-out { // esta clase se le agrega al modal y se agrega cuando cierro el modal
+        animation: fadeOut ease-in 0.5s; 
+    }
+
+    img {
+        max-width: 100rem;
+    }
+}
+
+@keyframes fadeIn {  /// keyframespermite crear animanimaciones (fadein = desvanecer)
+    0%{ //cuando comienza la animacion 
+        opacity: 0;
+    }
+    100% { // cuando finaliza la animacion 
+        opacity: 1;
+    }
+}
+// lo contrario a lo anterior 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

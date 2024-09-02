@@ -43,7 +43,19 @@
 
     img {
         max-width: 100rem;
-    }
+    }   
+}
+
+.btn-cerrar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-weight: 900;
+    border: none;
+    background-color: v.$blanco;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
 }
 
 @keyframes fadeIn {  /// keyframespermite crear animanimaciones (fadein = desvanecer)

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
     navegacionFija()
     crearGaleria()
+    resaltarEnlace()
 })
 
 function navegacionFija(){
@@ -87,4 +88,38 @@ function cerrarModal(){
     // if(modal){
     //     modal.remove()  // esto se hacia antes que es lo mismo a lo anterior
     // }
+}
+
+function resaltarEnlace(){
+    document.addEventListener('scroll', function(){
+        const sections = document.querySelectorAll('section');//selecciona todas las etiquetas section
+        const navLinks = document.querySelectorAll('.navegacion-principal a') // selecciona todos los enlaces
+        
+        let actual = ''
+        sections.forEach(section => {            
+            const sectionTop = section.offsetTop //offsetTop toma la distancia que hay desde la parte superior de esa seccion hasta el principio de su contenedor,en este caso el body
+            const sectionHeight = section.clientHeight // ClienteHeight dice cuando px mide esa seccion en el navegador
+           
+            if(window.scrollY >= (sectionTop - sectionHeight / 3)){ // se divide entre 3 la altura de la seccion para permitir ver que elemento se muestra mas
+                                // toda esta operacion permite ver que section esta mas visible en el navegador
+                actual = section.id
+              }
+        }); 
+
+        navLinks.forEach(link => {   // se recorre los link de navegacion
+            if (link.getAttribute('href') === '#' + actual){
+                link.classList.add('active')
+            } else {
+                link.classList.remove('active')
+            }
+        
+        })
+
+
+
+
+
+                
+    
+    })
 }

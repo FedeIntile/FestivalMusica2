@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
     navegacionFija()
     crearGaleria()
     resaltarEnlace()
+    scrollNav()
 })
 
 function navegacionFija(){
@@ -121,5 +122,19 @@ function resaltarEnlace(){
 
                 
     
+    })
+}
+
+function scrollNav(){ //funcion para que recorra hasta la seccion selecionada de forma mas lenta
+    const navLinks = document.querySelectorAll('.navegacion-principal a')
+
+    navLinks.forEach(link =>{
+        link.addEventListener('click', evento => {
+            evento.preventDefault() /// esto lo que hace es quitar la accion por defecto que al hacer click en el link del navegador nos envia a la seccion correspondiente
+            const sectionScroll = evento.target.getAttribute('href')
+            const section = document.querySelector(sectionScroll)
+
+            section.scrollIntoView({behavior: 'smooth'}) // se le pasa este objeto con esta propiedad
+        })
     })
 }

@@ -29,9 +29,12 @@ function crearGaleria() {
    
     for(let i=1;i<=CANTIDAD_IMAGENES; i++){
        const imagen = document.createElement('IMG') 
-       imagen.src = `src/img/gallery/full/${i}.jpg`;
+       imagen.loading = "lazy"; // va a cargar la galeria a medida que vayamos bajando
+       imagen.width = "300" // el ancho y la altura son necesarios para el loading anterior
+       imagen.height = "200"
+       imagen.src = `src/img/gallery/thumb/${i}.jpg`;
        imagen.alt = "imagen Galeria";
-
+       
        // Event Handler(Controlador de eventos)-- detecta y responde a una interaccion del usuario
        // en este caso va a ser un click
        imagen.onclick = function(){
